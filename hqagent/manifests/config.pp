@@ -33,29 +33,30 @@ alert("user exist")
 }
 	file { 
     'agent-tgz':
-		path    => "/home/hyperic/agent-4.6.tar.gz",
+		path    => "/home/hyperic/${release}",
     owner   => hyperic,
 		group   => hyperic,
     mode    => 775,
-    source  => "puppet:///modules/hyperic-agent/agent-4.6.tar.gz",
+    source  => "puppet:///modules/hqagent/${release}",
 		require => User['hyperic'],
 }
 	exec { 
     'hyperic-agent-install':
     cwd     => "/home/hyperic/",
-    command => "/bin/tar -xzf agent-4.6.tar.gz",
+    command => "/bin/tar -xzf ${release}",
 		user    => "hyperic",
-    creates => "/home/hyperic/agent-4.6-EE",
+ #   creates => "/home/hyperic/agent-4.6-EE",
+    creates => "/home/hyperic/${releasehome}",
 		timeout => 0,
 		require => [ User['hyperic'],File['agent-tgz']]
 }
   file { 
     'agent':
-    path    => "/home/hyperic/agent-4.6-EE/conf/agent.properties",
+    path    => "/home/hyperic/${releasehome}/conf/agent.properties",
     owner   => hyperic,
 		group   => hyperic, 
     mode    => 755,
-		content => template('hyperic-agent/agent.properties.erb'),
+		content => template('hqagent/agent.properties.erb'),
 		require => Exec['hyperic-agent-install'],
     notify  => Service['hyperic-agent'],
 }
@@ -71,7 +72,7 @@ alert("user exist")
 		path    => "/etc/init.d/hyperic-agent",
     owner   => root,
     mode    => 755,
-    source  => "puppet:///modules/hyperic-agent/hyperic-agent",
+    source  => "puppet:///modules/hqagent/hyperic-agent",
 		require => Exec['hyperic-agent-install'],
 }
 
@@ -80,7 +81,7 @@ alert("user exist")
 		path   => "/etc/logrotate.d/hyperic-agent",
     owner  => root,
     mode   => 644,
-    source => "puppet:///modules/hyperic-agent/hyperic-agent.rotate",
+    source => "puppet:///modules/hqagent/hyperic-agent.rotate",
 }
 }
 }
