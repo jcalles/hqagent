@@ -8,6 +8,8 @@
 #   serverip        => IP address hyperic server
 #   hquser          => admin user hq server  (usually hqadmin )
 #   hquserpassword  => password hqadmin
+#   release         => 'version of agent
+#   releasehome     => 'agent-4.6-EE',
 #
 #
 # === Examples
@@ -16,6 +18,10 @@
 #        serverip        => '10.10.10.1',
 #        hquser          => 'hqadmin',
 #        hquserpassword  => 'mypasword',
+#        release         => 'agent-4.6.tar.gz',
+#        releasehome     => 'agent-4.6-EE',
+#
+#
 #       }
 #
 #
