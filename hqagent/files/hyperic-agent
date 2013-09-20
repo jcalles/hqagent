@@ -1,0 +1,53 @@
+#!/bin/bash
+#
+# hq-agent - Starts the Hyperic agent.
+#
+# Author: Paul Peterson /Javier Calles
+#
+# chkconfig: - 99 01
+# description: Start the Hyperic agent
+# processname: hq-agent
+
+start(){
+su -l hyperic -c '/home/hyperic/agent-4.6-EE/bin/hq-agent.sh start'
+}
+restart(){
+su -l hyperic -c '/home/hyperic/agent-4.6-EE/bin/hq-agent.sh restart'
+}
+stop(){
+su -l root -c '/home/hyperic/agent-4.6-EE/bin/hq-agent.sh stop'
+}
+status(){
+        echo -n "Checking PID-file:  "
+        if [ -e /home/hyperic/agent-4.6-EE/wrapper/hq-agent.pid ]; then
+                        echo "OK - `cat /home/hyperic/agent-4.6-EE/wrapper/hq-agent.pid`"
+                else
+                        echo "FAILED! hq-agent.pid does not exist"
+                        RETVAL=1
+                        fi
+        return $RETVAL
+}
+
+case "$1" in
+start)
+start
+;;
+stop)
+stop
+;;
+restart)
+stop
+;;
+status)
+status
+;;
+restart)
+stop
+start
+;;
+*)
+echo "Usage: hq-agent {start|stop|restart|status}"
+exit 1
+esac
+
+exit 0

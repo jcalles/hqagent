@@ -1,0 +1,38 @@
+agent.setup.camIP=<%= serverip %>
+agent.setup.camPort=7080
+agent.setup.camSSLPort=7443
+agent.setup.camSecure=yes
+agent.setup.camLogin=<%= hquser %>
+agent.setup.camPword=<%= hquserpassword %>
+agent.setup.agentIP=*default*
+agent.setup.agentPort=*default*
+agent.setup.resetupTokens=yes
+agent.setup.acceptUnverifiedCertificate=yes
+snmpTrapReceiver.listenAddress=udp:0.0.0.0/162
+agent.javaOpts=-Xmx128m -Xms128m -Djava.net.preferIPv4Stack=true
+agent.setup.unidirectional=no
+jboss.installpath=/opt/jboss-5.1.0-GA
+sigar.mirror.procnet=true
+agent.logFile=${agent.logDir}/agent.log
+agent.logLevel=INFO
+log4j.rootLogger=${agent.logLevel}, R
+log4j.appender.R.File=${agent.logFile}
+log4j.appender.R.MaxBackupIndex=1
+log4j.appender.R.MaxFileSize=5000KB
+log4j.appender.R.layout.ConversionPattern=%d %-5p [%t] [%c{1}] %m%n
+log4j.appender.R.layout=org.apache.log4j.PatternLayout
+log4j.appender.R=org.apache.log4j.RollingFileAppender
+agent.logLevel.SystemErr=ERROR
+agent.logLevel.SystemOut=INFO
+log4j.logger.org.apache.http=ERROR
+log4j.logger.org.springframework.web.client.RestTemplate=ERROR
+log4j.logger.org.hyperic.hq.measurement.agent.server.SenderThread=INFO
+log4j.logger.org.hyperic.hq.agent.server.AgentDListProvider=INFO
+log4j.logger.org.hyperic.hq.agent.server.MeasurementSchedule=INFO
+log4j.logger.org.hyperic.util.units=INFO
+log4j.logger.org.hyperic.hq.product.pluginxml=INFO
+log4j.category.org.jnp.interfaces.NamingContext=ERROR
+log4j.category.org.apache.axis=ERROR
+autoinventory.runtimeScan.interval.millis=86400000
+hq.plugins.responsetime.disable=true
+accept.unverified.certificates=true
