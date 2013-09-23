@@ -1,6 +1,7 @@
 # == Class: hqagent
 #
-# Puppet Module to Install hyperic agent 4.6.0 on nodes CentOS and redhat 6.0 0r superior
+# Puppet Module to Install hyperic agent 4.6.0
+# on nodes CentOS and redhat 6.0 0r superior
 #
 # === Parameters
 #
@@ -34,6 +35,6 @@
 # Copyright 2013 Javier Calles
 #
 class hqagent {
-	include hqagent::config
-	include hqagent::service
+include hqagent::config
+include hqagent::service
 }
