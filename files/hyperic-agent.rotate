@@ -1,4 +1,4 @@
-/home/hyperic/agent-4.6-EE/log/*log {
+/home/hyperic/agent/log/*log {
   missingok
   notifempty
   rotate 4

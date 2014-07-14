@@ -1,0 +1,11 @@
+/home/hyperic/agent/log/*log {
+  missingok
+  notifempty
+  rotate 4
+  weekly
+  create 0644 hyperic hyperic
+  sharedscripts
+  postrotate
+    [ -e /etc/init.d/hyperic-agent ] && /etc/init.d/hyperic-agent restart > /dev/null 2>&1 || true
+  endscript
+}

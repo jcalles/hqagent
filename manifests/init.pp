@@ -1,17 +1,11 @@
-# == Class: hqagent
+# == Class: hyperic
 #
-# Puppet Module to Install hyperic agent 4.6.0
-# on nodes CentOS and redhat 6.0 0r superior
+# Puppet Module to Install hyperic agent 4.6.0 on nodes CentOS and redhat 6.0 0r superior
 #
 # === Parameters
-#
-# Document parameters here.
 #   serverip        => IP address hyperic server
 #   hquser          => admin user hq server  (usually hqadmin )
 #   hquserpassword  => password hqadmin
-#   release         => 'version of agent
-#   releasehome     => 'agent-4.6-EE',
-#
 #
 # === Examples
 #
@@ -19,12 +13,8 @@
 #        serverip        => '10.10.10.1',
 #        hquser          => 'hqadmin',
 #        hquserpassword  => 'mypasword',
-#        release         => 'agent-4.6.tar.gz',
-#        releasehome     => 'agent-4.6-EE',
-#
-#
-#       }
-#
+
+## The passowd is set  ./hq-agent.sh set-property agent.setup.camPword hqadmin
 #
 # === Authors
 #
@@ -32,9 +22,12 @@
 #
 # === Copyright
 #
-# Copyright 2013 Javier Calles
+# Copyright 2011 Your name here, unless otherwise noted.
 #
-class hqagent {
-include hqagent::config
-include hqagent::service
+# Author: Javier Calles
+#
+class hyperic-agent {
+	include hyperic-agent::config
+	include hyperic-agent::service
+	include hyperic-agent::install
 }

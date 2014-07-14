@@ -1,0 +1,29 @@
+{
+  "types": [
+
+  ],
+  "source": "Custom",
+  "author": "jcalles",
+  "dependencies": [
+
+  ],
+  "summary": "Puppet module for install hyperic agent 4.6.0 on RedHat an d centOS > 6.0",
+  "checksums": {
+    "spec/spec_helper.rb": "a55d1e6483344f8ec6963fcb2c220372",
+    "tests/init.pp": "85792bf6b277368e8392012970b61166",
+    "manifests/init.pp": "2e3373f20cbdbcc36f169e83caec27a5",
+    "files/hyperic-agent": "d309ba90041bc1a0a3ed135a44fa1186",
+    "manifests/service.pp": "1c75edd11f4d790a7684d7787ce7dfaa",
+    "manifests/config.pp": "5afd5e14b14480ad1d295f78a8b85ac8",
+    "manifests/install.pp": "78d81146582b3e7922f258b4b9ab5eb3",
+    "files/hyperic-agent.rotate": "d2ceaa5831301a7e0bd26d8377518b28",
+    "Modulefile": "be3d8666bcea70bbe1f8cbc234bd79ae",
+    "README.md": "93837dcac4b868918ccc0080412e8cc6",
+    "templates/agent.properties.erb": "a54cfbd83682ea2b8847327d3813688f"
+  },
+  "project_page": "https://github.com/jcalles/puppet-hqagent",
+  "description": "Puppet module for install hyperic agent 4.6.0",
+  "version": "0.0.1",
+  "name": "jcalles-hqagent",
+  "license": "Apache License, Version 2.0"
+}

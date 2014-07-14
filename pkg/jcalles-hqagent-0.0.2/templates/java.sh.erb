@@ -1,0 +1,15 @@
+<% if scope.lookupvar("::operatingsystem") =~ /(RedHat|CentOS)/ then -%>
+export JAVA_HOME=/usr/java/jre1.6.0_27/
+export PATH="$JAVA_HOME/bin:$PATH"
+<% end -%>
+<% if scope.lookupvar("::operatingsystemrelease") == '7.5' then -%>
+export JAVA_HOME=/usr/lib/jvm/java-6-openjdk-i386/
+export PATH="$JAVA_HOME/bin:$PATH"
+<% end -%>
+<% if scope.lookupvar("::hostname") == 'sigefirrhhpb' then -%>
+export JAVA_HOME=/usr/lib/jvm/java-6-sun/
+export PATH="$JAVA_HOME/bin:$PATH"
+<% end -%>
+
+
+
